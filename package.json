@@ -1,7 +1,7 @@
 {
   "name": "burger",
   "version": "1.0.0",
-  "description": "Eat-Da-Burger! This is an app that allows users to add a burger and devour it!",
+  "description": "Node Express Handlebars",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,19 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/unbeatablesites/burger"
+    "url": "git+https://github.com/atlscott/burger.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/unbeatablesites/burger"
+    "url": "https://github.com/atlscott/burger/issues"
   },
-  "homepage": "https://github.com/unbeatablesites/burger",
+  "homepage": "https://github.com/atlscott/burger#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "mysql": "^2.15.0"
+    "method-override": "^3.0.0",
+    "mysql": "^2.16.0"
   }
 }

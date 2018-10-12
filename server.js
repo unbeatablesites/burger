@@ -1,33 +1,31 @@
-var express = require("express");
-var bodyParser = require("body-parser");
+// Node Dependencies
+var express = require('express');
+var bodyParser = require('body-parser');
+//var methodOverride = require('method-override');
 
-var PORT = process.env.PORT || 5000;
+// Open Server
+var PORT = process.env.PORT || 3000;
 
 var app = express();
+//Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(__dirname + '/public'));
+// app.use(express.static('public'));
 
-// Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
-
-// parse application/x-www-form-urlencoded
+// Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// parse application/json
-app.use(bodyParser.json());
-
-// Set Handlebars.
-var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-// Import routes and give the server access to them.
-var routes = require("./controllers/burgers_Controller.js");
-
-app.use('/', routes);
+// Handlebars
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 
-app.listen(PORT, function(){
-    console.log("Server listening on localhost:" + PORT);
-})
-	
+var router = require('./controllers/burgers_controller.js');
+app.use('/', router);
 
+
+
+app.listen(PORT, function() 
+{
+  console.log("App listening on PORT " + PORT);
+});
